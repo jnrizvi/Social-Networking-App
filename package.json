@@ -1,0 +1,24 @@
+{
+  "name": "social-networking-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnrizvi/Social-Networking-App.git"
+  },
+  "author": "Jawad Rizvi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnrizvi/Social-Networking-App/issues"
+  },
+  "homepage": "https://github.com/jnrizvi/Social-Networking-App#readme",
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "graphql": "^15.4.0",
+    "mongoose": "^5.11.7"
+  }
+}
