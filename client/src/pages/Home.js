@@ -6,22 +6,33 @@ import { Grid } from 'semantic-ui-react'
 import PostCard from '../components/PostCard.js';
 
 const FETCH_POSTS_QUERY = gql`
-    {
+    query {
         getPosts{
-            id body createdAt username likeCount
+            id 
+            body 
+            createdAt 
+            username 
+            likeCount
             likes{
                 username
             }
             commentCount
             comments{
-                id username createdAt body
+                id 
+                username 
+                createdAt 
+                body
             }
         }
     }
 `;
 
 export default function Home() {
-    const { loading, data: { getPosts: posts } } = useQuery(FETCH_POSTS_QUERY);
+    const { loading, data } = useQuery(FETCH_POSTS_QUERY);
+
+    // if (data) {
+    //     console.log(data.getPosts)
+    // }
 
     return (
         <Grid columns={3} >
@@ -32,7 +43,7 @@ export default function Home() {
                 {loading ? (
                     <h1>Loading posts...</h1>
                 ) : (
-                    posts && posts.map(post => (
+                    data.getPosts && data.getPosts.map(post => (
                         <Grid.Column key={post.id}>
                             <PostCard post={post}/>
                         </Grid.Column>
