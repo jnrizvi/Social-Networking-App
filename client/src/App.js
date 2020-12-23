@@ -11,16 +11,21 @@ import './App.css';
 
 import MenuBar from './components/MenuBar.js'
 
+import { AuthProvider } from './context/auth.js';
+import AuthRoute from './util/AuthRoute.js'
+
 function App() {
     return (
-        <Router>
-            <Container>
-                <MenuBar />
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/login' component={Login}/>
-                <Route exact path='/register' component={Register}/>
-            </Container>
-        </Router>
+        <AuthProvider>
+            <Router>
+                <Container>
+                    <MenuBar />
+                    <Route exact path='/' component={Home}/>
+                    <AuthRoute exact path='/login' component={Login}/>
+                    <AuthRoute exact path='/register' component={Register}/>
+                </Container>
+            </Router>
+        </AuthProvider>
     );
 }
 
