@@ -13,6 +13,7 @@ if (localStorage.getItem('jwtToken')) {
         localStorage.removeItem("jwtToken")
     }
     else {
+        // console.log(decodedToken)
         initialState.user = decodedToken;
     }
 }
