@@ -8,6 +8,7 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
     const [liked, setLiked] = useState(false);
 
     useEffect(() => {
+        // console.log(user)
         if (user && likes.find( like => like.username === user.username )) {
             setLiked(true)
         }
@@ -39,7 +40,7 @@ export default function LikeButton({ user, post: { id, likeCount, likes } }) {
     return (
         <Button as='div' labelPosition='right' onClick={likePost}>
             {likeButton}
-            
+
             <Label basic color='teal' pointing='left'>
                 {likeCount}
             </Label>

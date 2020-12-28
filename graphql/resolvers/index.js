@@ -6,7 +6,7 @@ module.exports = {
     // "modifiers" that update another field when a change occurs
     Post: {
         likeCount(parent) {
-            console.log(parent);
+            // console.log(parent);
             return parent.likes.length;
         },
         commentCount(parent) {
