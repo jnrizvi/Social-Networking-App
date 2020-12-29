@@ -23,7 +23,35 @@ const authLink = setContext(() => {
 // cache stores in memory data
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    // onError: (e) => { console.log(e) }
+    // cache: new InMemoryCache({
+    //     typePolicies: {
+    //         Query: {
+    //             fields: {
+    //                 getPosts: {
+    //                     merge(existing = [], incoming: []) {
+    //                         return incoming;
+    //                     }
+    //                 }
+    //             }
+    //         },
+    //         Post: {
+    //             fields: {
+    //                 likes: {
+    //                     merge(existing = [], incoming: []) {
+    //                         return incoming;
+    //                     }
+    //                 },
+    //                 comments: {
+    //                     merge(existing = [], incoming: []) {
+    //                         return incoming;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // })
 });
 
 export default (

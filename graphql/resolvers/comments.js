@@ -35,6 +35,8 @@ module.exports = {
 
             const post = await Post.findById(postId);
 
+            console.log('deleteComment')
+
             if (post) {
                 const commentIndex = post.comments.findIndex( c => c.id === commentId );
 
