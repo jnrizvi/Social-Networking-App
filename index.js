@@ -1,4 +1,4 @@
-const { ApolloServer, PubSub } = require("apollo-server");
+const { ApolloServer, PubSub } = require("apollo-server-express");
 const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
