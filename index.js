@@ -19,13 +19,14 @@ const server = new ApolloServer({
 });
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'client/build')));
 // app.use(path.join(__dirname+'/client/build/index.html'))
 
-app.use(express.static('client'));
+// app.use(express.static('client'));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client','index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client','index.html'));
+// });
 
 server.applyMiddleware({ app });
 
@@ -37,10 +38,10 @@ mongoose.connect(MONGODBURI, { useNewUrlParser: true })
             console.log(`Listening to port ${PORT}`);
         });
     })
-    .then(res => {
-        console.log(`Server running at ${res.url}`)
+    // .then(res => {
+    //     console.log(`Server running at ${res.url}`)
         
-    })
+    // })
     .catch(err => {
         console.error(err)
     });
