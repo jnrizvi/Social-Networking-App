@@ -1,1 +1,1 @@
-web: node index.js
+web: node index.js && cd client && npm run build && npm install -g serve && serve -s build
