@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 
 const typeDefs = require('./graphql/typeDefs.js');
 const resolvers = require('./graphql/resolvers/index.js');
-const { MONGODB } = require('./config.js');
+const { MONGODBURIL } = require('./config.js');
 
 const pubsub = new PubSub();
 
+const MONGODBURI = process.env.MONGODBURI || MONGODBURIL
 const PORT = process.env.PORT || 5000
 
 const server = new ApolloServer({
@@ -15,7 +16,7 @@ const server = new ApolloServer({
     context: ({ req }) => ({ req, pubsub }) 
 });
 
-mongoose.connect(MONGODB, { useNewUrlParser: true })
+mongoose.connect(MONGODBURI, { useNewUrlParser: true })
     .then(() => {
         console.log('MongoDB Connected')
         return server.listen({ port: PORT })

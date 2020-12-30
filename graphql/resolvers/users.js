@@ -5,8 +5,10 @@ const { UserInputError } = require('apollo-server');
 const { validateRegisterInput, validateLoginInput } = require('../../util/validators.js')
 
 // key to encode token, only works on our server
-const { SECRET_KEY } = require('../../config.js');
+const { SECRET_KEYL } = require('../../config.js');
 const User = require('../../models/User.js');
+
+const SECRET_KEY = process.env.SECRET_KEY || SECRET_KEYL
 
 function generateToken(user) {
     return jwt.sign(
