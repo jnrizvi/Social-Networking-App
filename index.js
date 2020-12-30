@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 const typeDefs = require('./graphql/typeDefs.js');
 const resolvers = require('./graphql/resolvers/index.js');
-const { MONGODBURIL } = require('./config.js');
+// const { MONGODBURIL } = require('./config.js');
 
 const pubsub = new PubSub();
 
-const MONGODBURI = process.env.MONGODBURI || MONGODBURIL
+const MONGODBURI = process.env.MONGODBURI// || MONGODBURIL
 const PORT = process.env.PORT || 5000
 
 const server = new ApolloServer({
