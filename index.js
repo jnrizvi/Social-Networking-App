@@ -1,5 +1,6 @@
 const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require('mongoose');
+const path = require('path');
 
 const typeDefs = require('./graphql/typeDefs.js');
 const resolvers = require('./graphql/resolvers/index.js');
@@ -23,6 +24,7 @@ mongoose.connect(MONGODBURI, { useNewUrlParser: true })
     })
     .then(res => {
         console.log(`Server running at ${res.url}`)
+        res.sendFile(path.join(__dirname+'/client/build/index.html'))
     })
     .catch(err => {
         console.error(err)
