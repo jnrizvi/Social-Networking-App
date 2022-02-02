@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jnrizvi/Social-Networking-App#readme",
   "dependencies": {
     "apollo-server": "^2.19.0",
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "graphql": "^15.4.0",
     "jsonwebtoken": "^8.5.1",
